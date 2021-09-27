@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <RelativeLayout
+        android:id="@+id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#3957a1">
+
+        <TextView
+            android:id="@+id/text_view_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HEALTH\nCALC"
+            android:textAlignment="viewEnd"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="30dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="sans-serif-black"
+            android:textSize="35dp"/>
+
+        <ImageView
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/iconekcal"
+            android:layout_marginStart="300dp"
+            android:layout_centerVertical="true"/>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:layout_below="@id/layout_header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_wave_top"
+        android:scaleType="fitXY"/>
+
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOGIN"
+            android:textColor="@android:color/darker_gray"
+            android:fontFamily="sans-serif-black"
+            android:textSize="28dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Faça login para Continuar"
+            android:textColor="@android:color/darker_gray"
+            android:fontFamily="sans-serif-black"
+            android:textSize="12dp"
+            android:layout_marginTop="35dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="65dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/edit_text_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="E-mail"
+                android:drawableStart="@drawable/icone_email"
+                android:drawableTint="#3957a1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="130dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+            <EditText
+                android:id="@+id/edit_text_senha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Senha"
+                android:inputType="textPassword"
+                android:drawableStart="@drawable/icone_cadeado"
+                android:drawableTint="#3957a1"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/button_entrar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="ENTRAR"
+            android:layout_marginTop="200dp"
+            android:background=""/>
+
+        <CheckBox
+            android:layout_below="@id/button_entrar"
+            android:id="@+id/chebox_lembrar"
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_marginTop="20dp"
+            android:text="Lembrar-me"
+            android:layout_alignParentEnd="true"/>
+
+        <TextView
+            android:layout_below="@id/chebox_lembrar"
+            android:id="@+id/text_view_esqueci_a_senha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esqueci a senha"
+            android:textColor="#3496AD"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="7dp"/>
+
+        <LinearLayout
+            android:layout_below="@+id/text_view_esqueci_a_senha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="7dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Não tem uma conta? "/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Criar uma conta agora"
+                android:textColor="#3496AD"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:src="@drawable/ic_wave_bottom"
+        android:layout_alignParentBottom="true"
+        android:scaleType="fitXY"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Desenvolvido por DS2M"
+        android:fontFamily="sans-serif-black"
+        android:textSize="8dp"
+        android:textColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="3dp"/>
+
+</RelativeLayout>
