@@ -104,7 +104,7 @@
             android:layout_height="60dp"
             android:text="ENTRAR"
             android:layout_marginTop="200dp"
-            android:background=""/>
+            android:background="@color/purple_500"/>
 
         <CheckBox
             android:layout_below="@id/button_entrar"
@@ -137,6 +137,7 @@
                 android:layout_height="wrap_content"
                 android:text="Não tem uma conta? "/>
             <TextView
+                android:id="@+id/text_view_nova_conta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Criar uma conta agora"
