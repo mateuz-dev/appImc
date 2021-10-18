@@ -74,10 +74,11 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Email"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    />
 
                 <EditText
-                    android:id="@+id/text_view_senha"
+                    android:id="@+id/edit_text_senha"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Senha"
@@ -125,7 +126,7 @@
 
 
                 <EditText
-                    android:id="@+id/text_view_profissao"
+                    android:id="@+id/edit_text_profissao"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Profissão"
@@ -142,11 +143,12 @@
 
 
                 <EditText
-                    android:id="@+id/text_view_data_nascimento"
+                    android:id="@+id/edit_text_data_nascimento"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Data de Nascimento"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:focusable="false"/>
 
 
                 <TextView
@@ -155,17 +157,20 @@
                     android:layout_marginTop="10dp"
                     android:text="Sexo:"/>
                 <RadioGroup
+                    android:id="@+id/radio_group_sexo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <RadioButton
+                        android:id="@+id/radio_button_feminino"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Feminino"
                         android:layout_marginEnd="20dp"/>
 
                     <RadioButton
+                        android:id="@+id/radio_button_masculino"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:hint="Masculino"/>

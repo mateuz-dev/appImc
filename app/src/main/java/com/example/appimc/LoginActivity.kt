@@ -10,10 +10,12 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        supportActionBar!!.hide()
+
         val textViewNovaConta = findViewById<TextView>(R.id.text_view_nova_conta)
 
         textViewNovaConta.setOnClickListener {
-            val novaConta = Intent(this, NovoUsuarioActivity)
+            val novaConta = Intent(this, NovoUsuarioActivity::class.java)
             startActivity(novaConta)
         }
     }
