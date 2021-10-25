@@ -10,11 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppImc">
 
-        <activity android:name=".NovoUsuarioActivity"> </activity>
+        <activity android:name=".ui.NovoUsuarioActivity"> </activity>
 
-        <activity android:name=".DashboardActivity"></activity>
+        <activity android:name=".ui.DashboardActivity"></activity>
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

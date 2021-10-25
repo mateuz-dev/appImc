@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".NovoUsuarioActivity"
+    tools:context=".ui.NovoUsuarioActivity"
     android:orientation="vertical"
     android:gravity="center"
     android:padding="10dp">
@@ -134,7 +134,7 @@
 
 
                 <EditText
-                    android:id="@+id/text_view_altura"
+                    android:id="@+id/edit_text_altura"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Altura"

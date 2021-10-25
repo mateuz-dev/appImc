@@ -1,6 +1,7 @@
-package com.example.appimc
+package com.example.appimc.ui
 
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -9,6 +10,13 @@ import android.view.MenuItem
 import android.widget.EditText
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
+import com.example.appimc.R
+import com.example.appimc.model.Usuario
+import com.example.appimc.ui.LoginActivity
+import com.example.appimc.utils.convertStringToLocalDate
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 import java.util.*
 
 class NovoUsuarioActivity : AppCompatActivity() {
@@ -17,7 +25,7 @@ class NovoUsuarioActivity : AppCompatActivity() {
     lateinit var editSenha: EditText
     lateinit var editNome: EditText
     lateinit var editProfissao: EditText
-//    lateinit var editAltura: EditText
+    lateinit var editAltura: EditText
     lateinit var editDataNascimento: EditText
 
     lateinit var radioSexo: RadioGroup
@@ -34,7 +42,7 @@ class NovoUsuarioActivity : AppCompatActivity() {
         editSenha = findViewById<EditText>(R.id.edit_text_senha)
         editNome = findViewById<EditText>(R.id.edit_text_nome)
         editProfissao = findViewById<EditText>(R.id.edit_text_profissao)
-//        editAltura = findViewById<EditText>(R.id.edit_text_altura)
+        editAltura = findViewById<EditText>(R.id.edit_text_altura)
         editDataNascimento = findViewById<EditText>(R.id.edit_text_data_nascimento)
 
         radioSexo = findViewById<RadioGroup>(R.id.radio_group_sexo)
@@ -70,13 +78,51 @@ class NovoUsuarioActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
-        if (validarCampos() && validarBotoes()){
-            validarSenha()
-            // envio banco de dados
-        }
+        if (validarCampos() && validarBotoes() && validarSenha()){
 
-        val paginaLogin = Intent(this, LoginActivity::class.java)
-        startActivity(paginaLogin)
+            val dataNascimento = convertStringToLocalDate(editDataNascimento.text.toString())
+
+            val usuario = Usuario(
+                    1,
+                    editNome.text.toString(),
+                    editEmail.text.toString(),
+                    editSenha.text.toString(),
+                    0,
+                    editAltura.text.toString().toDouble(),
+                    LocalDate.of(
+                            dataNascimento.year,
+                            dataNascimento.monthValue,
+                            dataNascimento.dayOfMonth
+                    ),
+                    editProfissao.text.toString(),
+                    if (radioButtonFeminino.isChecked){
+                        'F'
+                    } else{
+                        'M'
+                    }
+            )
+
+            val dados = getSharedPreferences("usuario", Context.MODE_PRIVATE)
+
+            val editor = dados.edit()
+            editor.putInt("id", usuario.id)
+            editor.putString("nome", usuario.nome)
+            editor.putString("email", usuario.email)
+            editor.putString("senha", usuario.senha)
+            editor.putInt("peso", usuario.peso)
+            editor.putFloat("altura", usuario.altura.toFloat())
+            editor.putString("dataNascimento", usuario.dataNascimento.toString())
+            editor.putString("profissao", usuario.profissao)
+            editor.putString("sexo", usuario.sexo.toString())
+            editor.apply()
+
+
+            // redirecionamento para tela de login
+//            val paginaLogin = Intent(this, LoginActivity::class.java)
+//            startActivity(paginaLogin)
+
+            Toast.makeText(this, "USUÁRIO CADASTRADO", Toast.LENGTH_LONG).show()
+        }
 
         return true
     }
