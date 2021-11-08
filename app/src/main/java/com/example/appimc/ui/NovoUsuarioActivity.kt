@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
@@ -60,13 +61,32 @@ class NovoUsuarioActivity : AppCompatActivity() {
 
         // abrir o componente Date Picker
         val etDataNascimento = findViewById<EditText>(R.id.edit_text_data_nascimento)
-        etDataNascimento.setOnClickListener {
-            val dp = DatePickerDialog(this,
-                    DatePickerDialog.OnDateSetListener{ view, _ano, _mes, _dia ->
-                        etDataNascimento.setText("$_dia/${_mes + 1}/$_ano")
-                    }, ano, mes, dia)
 
-            dp.show()
+        editDataNascimento.setOnClickListener {
+            val dpd = DatePickerDialog(this,
+                    DatePickerDialog.OnDateSetListener { view, _ano, _mes, _dia ->
+
+                        var diaFinal = _dia
+                        var mesFinal = _mes + 1
+
+                        var mesString = "$mesFinal"
+                        var diaString = "$diaFinal"
+
+                        if (mesFinal < 10) {
+                            mesString = "0$mesFinal"
+                        }
+
+                        if (diaFinal < 10) {
+                            diaString = "0$diaFinal"
+                        }
+
+                        Log.i("xpto", _dia.toString())
+                        Log.i("xpto", _mes.toString())
+
+                        editDataNascimento.setText("$diaString/$mesString/$_ano")
+                    }, ano, mes, dia
+            )
+            dpd.show()
         }
 
     }
@@ -118,12 +138,11 @@ class NovoUsuarioActivity : AppCompatActivity() {
 
 
             // redirecionamento para tela de login
-//            val paginaLogin = Intent(this, LoginActivity::class.java)
-//            startActivity(paginaLogin)
-
-            Toast.makeText(this, "USUÁRIO CADASTRADO", Toast.LENGTH_LONG).show()
+            val paginaLogin = Intent(this, LoginActivity::class.java)
+            startActivity(paginaLogin)
         }
 
+        Toast.makeText(this, "USUÁRIO CADASTRADO", Toast.LENGTH_LONG).show()
         return true
     }
 
