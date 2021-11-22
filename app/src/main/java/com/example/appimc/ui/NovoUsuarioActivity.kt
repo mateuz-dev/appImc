@@ -14,10 +14,8 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import com.example.appimc.R
 import com.example.appimc.model.Usuario
-import com.example.appimc.ui.LoginActivity
 import com.example.appimc.utils.convertStringToLocalDate
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 class NovoUsuarioActivity : AppCompatActivity() {

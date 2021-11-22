@@ -1,16 +1,15 @@
 package com.example.appimc.ui
 
-import android.content.Context
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RelativeLayout
+import android.view.Menu
+import android.widget.EditText
 import android.widget.TextView
 import com.example.appimc.R
 import com.example.appimc.utils.calcularIdade
+import java.time.LocalDate
 
-class DashboardActivity : AppCompatActivity() {
+class PesagemActivity : AppCompatActivity() {
 
     lateinit var textViewNome : TextView
     lateinit var textViewProfissao : TextView
@@ -18,12 +17,13 @@ class DashboardActivity : AppCompatActivity() {
     lateinit var textViewNcd : TextView
     lateinit var textViewIdade : TextView
     lateinit var textViewAltura : TextView
+    lateinit var textViewDataPesagem : TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dashboard)
+        setContentView(R.layout.activity_pesagem)
 
-        supportActionBar!!.hide()
+        supportActionBar!!.title = "PESAGEM"
 
         textViewNome = findViewById(R.id.text_view_usuario_nome)
         textViewProfissao = findViewById(R.id.text_view_usuario_profissao)
@@ -32,14 +32,19 @@ class DashboardActivity : AppCompatActivity() {
         textViewIdade = findViewById(R.id.text_view_usuario_idade)
         textViewAltura = findViewById(R.id.text_view_usuario_altura)
 
-
-        var buttonPesagem = findViewById<RelativeLayout>(R.id.button_pesagem)
-        buttonPesagem.setOnClickListener {
-            val pesagem = Intent(this, PesagemActivity::class.java)
-            startActivity(pesagem)
-        }
-
         carregarDashboard()
+
+        val dataHoje = LocalDate.now().toString()
+        val dataHojeArray = dataHoje.split("-").toTypedArray()
+
+        textViewDataPesagem = findViewById(R.id.edit_text_data_pesagem)
+        textViewDataPesagem.text = dataHojeArray[2] + "/" + dataHojeArray[1] + "/" + dataHojeArray[0]
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_perfil, menu)
+        return true
     }
 
 
@@ -52,6 +57,4 @@ class DashboardActivity : AppCompatActivity() {
 
         // val bitmap = convertBase64ToBitmap(arquivo.getString("fotoPerfil", "")!!)ivPerfil.set
     }
-
-
 }
