@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">appImc</string>
+
+    <string-array name="niveis">
+        <item>Atividade Leve</item>
+        <item>Atividade Moderada</item>
+        <item>Atividade Intensa</item>
+    </string-array>
 </resources>

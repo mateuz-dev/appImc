@@ -8,10 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.EditText
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
 import com.example.appimc.R
 import com.example.appimc.model.Usuario
 import com.example.appimc.utils.convertStringToLocalDate
@@ -19,6 +16,8 @@ import java.time.LocalDate
 import java.util.*
 
 class NovoUsuarioActivity : AppCompatActivity() {
+
+    lateinit var textTrocarFoto: TextView
 
     lateinit var editEmail: EditText
     lateinit var editSenha: EditText
@@ -36,6 +35,8 @@ class NovoUsuarioActivity : AppCompatActivity() {
         setContentView(R.layout.activity_novo_usuario)
 
         supportActionBar!!.title = "PERFIL"
+
+        textTrocarFoto = findViewById<TextView>(R.id.text_view_trocar_foto)
 
         editEmail = findViewById<EditText>(R.id.edit_text_email)
         editSenha = findViewById<EditText>(R.id.edit_text_senha)
@@ -105,7 +106,6 @@ class NovoUsuarioActivity : AppCompatActivity() {
                     editNome.text.toString(),
                     editEmail.text.toString(),
                     editSenha.text.toString(),
-                    0,
                     editAltura.text.toString().toDouble(),
                     LocalDate.of(
                             dataNascimento.year,
@@ -117,7 +117,7 @@ class NovoUsuarioActivity : AppCompatActivity() {
                         'F'
                     } else{
                         'M'
-                    }
+                    },
             )
 
             val dados = getSharedPreferences("usuario", Context.MODE_PRIVATE)
@@ -127,7 +127,6 @@ class NovoUsuarioActivity : AppCompatActivity() {
             editor.putString("nome", usuario.nome)
             editor.putString("email", usuario.email)
             editor.putString("senha", usuario.senha)
-            editor.putInt("peso", usuario.peso)
             editor.putFloat("altura", usuario.altura.toFloat())
             editor.putString("dataNascimento", usuario.dataNascimento.toString())
             editor.putString("profissao", usuario.profissao)

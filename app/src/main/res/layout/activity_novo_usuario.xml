@@ -23,6 +23,7 @@
 
 
     <TextView
+        android:id="@+id/text_view_trocar_foto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Trocar foto"

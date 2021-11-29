@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
+    android:id="@+id/relative_layout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,16 +10,26 @@
     tools:context=".ui.DashboardActivity">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_img"
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
+        android:id="@+id/card_view_foto_perfil"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        app:cardCornerRadius="20dp"
+        android:layout_alignParentEnd="true">
         <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:src="@drawable/ic_pesagem"
-            android:scaleType="centerCrop"
-            android:layout_gravity="center"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/foto_perfil"
+            android:scaleType="centerCrop"/>
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/image_view_healthy"
+        android:layout_below="@+id/card_view_foto_perfil"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_pesagem"
+        android:scaleType="centerCrop"
+        android:layout_centerHorizontal="true"/>
 
 
     <LinearLayout
@@ -26,14 +37,14 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/card_view_img"
+        android:layout_below="@+id/image_view_healthy"
         android:layout_marginTop="10dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Vamos nos pesar?"
-            android:textSize="24dp"
+            android:textSize="18dp"
             android:textStyle="bold"/>
 
         <LinearLayout
@@ -67,8 +78,8 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:src="@drawable/icone_acessibilidade"
             android:layout_gravity="center"/>
 
@@ -76,7 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Dados da sua Pesagem"
-            android:textSize="24sp"
+            android:textSize="18sp"
             android:layout_marginLeft="8dp"
             android:textColor="@color/purple_500"
             android:textStyle="bold"/>
@@ -86,45 +97,101 @@
 
 
     <LinearLayout
+        android:id="@+id/linear_layout_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/linear_layout_dados"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
 
-<!--        <EditText-->
-<!--                    android:id="@+id/edit_text_data_pesagem-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:hint="Data da Pesagem"-->
-<!--                    android:focusable="false"-->
-<!--                    android:layout_marginBottom="30dp"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Data da Pesagem"
+            android:textSize="12sp"/>
+
+        <EditText
+            android:id="@+id/edit_text_data_pesagem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Data da Pesagem"
+            android:focusable="false"
+            android:textSize="16sp" />
 
     </LinearLayout>
 
 
+    <LinearLayout
+        android:id="@+id/linear_layout_spinner"
+        android:layout_below="@+id/linear_layout_data"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nivel da Atividade"
+            android:textSize="12sp"/>
+
+        <Spinner
+            android:id="@+id/spinner_niveil_atividade"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:entries="@array/niveis"/>
+
+    </LinearLayout>
 
 
-<!--    <LinearLayout-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:gravity="center"-->
-<!--        android:layout_below="@id/layout_header"-->
-<!--        android:layout_margin="20dp">-->
+    <LinearLayout
+        android:id="@+id/linear_layout_peso"
+        android:layout_below="@+id/linear_layout_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
 
-<!--        <EditText-->
-<!--            android:id="@+id/edit_text_data_pesagem"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Data da Pesagem"-->
-<!--            android:focusable="false"-->
-<!--            android:layout_marginBottom="30dp"/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Peso Atual"
+            android:textSize="12sp"/>
 
-<!--        <EditText-->
-<!--            android:id="@+id/edit_text_peso"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Digite seu Peso" />-->
-<!--    </LinearLayout>-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/edit_text_peso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Seu peso"
+                android:textSize="16sp"
+                android:inputType="numberDecimal"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kg"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/button_salvar"
+        android:layout_below="@+id/linear_layout_peso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SALVAR"
+        android:layout_alignParentEnd="true"/>
 
 </RelativeLayout>

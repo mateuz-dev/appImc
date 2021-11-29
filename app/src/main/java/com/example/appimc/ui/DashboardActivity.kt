@@ -1,16 +1,16 @@
 package com.example.appimc.ui
 
-import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.example.appimc.R
 import com.example.appimc.utils.calcularIdade
 
 class DashboardActivity : AppCompatActivity() {
+
+    lateinit var buttonPesagem : RelativeLayout
 
     lateinit var textViewNome : TextView
     lateinit var textViewProfissao : TextView
@@ -33,18 +33,19 @@ class DashboardActivity : AppCompatActivity() {
         textViewAltura = findViewById(R.id.text_view_usuario_altura)
 
 
-        var buttonPesagem = findViewById<RelativeLayout>(R.id.button_pesagem)
+        buttonPesagem = findViewById(R.id.button_pesagem)
         buttonPesagem.setOnClickListener {
             val pesagem = Intent(this, PesagemActivity::class.java)
             startActivity(pesagem)
         }
 
         carregarDashboard()
+
     }
 
 
     private fun carregarDashboard(){
-        var arquivo = this.getSharedPreferences("usuario", MODE_PRIVATE)
+        val arquivo = this.getSharedPreferences("usuario", MODE_PRIVATE)
         textViewNome.text = arquivo.getString("nome", "")
         textViewProfissao.text = arquivo.getString("profissao", "")
         textViewAltura.text = arquivo.getFloat("altura", 0.0f).toString()
