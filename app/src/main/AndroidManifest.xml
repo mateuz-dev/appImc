@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppImc">
-        <activity android:name=".ui.PesagemActivity"></activity>
-        <activity android:name=".ui.NovoUsuarioActivity"></activity>
+        <activity android:name=".ui.HistoricoActivity"></activity>
+        <activity android:name=".ui.PesagemActivity" />
+        <activity android:name=".ui.NovoUsuarioActivity" />
         <activity android:name=".ui.DashboardActivity" />
         <activity android:name=".ui.LoginActivity">
             <intent-filter>

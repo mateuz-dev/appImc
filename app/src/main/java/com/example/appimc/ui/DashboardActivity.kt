@@ -3,14 +3,18 @@ package com.example.appimc.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.example.appimc.R
+import com.example.appimc.repository.PesagemRepository
 import com.example.appimc.utils.calcularIdade
+import kotlin.math.log
 
 class DashboardActivity : AppCompatActivity() {
 
     lateinit var buttonPesagem : RelativeLayout
+    lateinit var buttonHistorico : RelativeLayout
 
     lateinit var textViewNome : TextView
     lateinit var textViewProfissao : TextView
@@ -37,6 +41,13 @@ class DashboardActivity : AppCompatActivity() {
         buttonPesagem.setOnClickListener {
             val pesagem = Intent(this, PesagemActivity::class.java)
             startActivity(pesagem)
+        }
+
+
+        buttonHistorico = findViewById(R.id.button_historico)
+        buttonHistorico.setOnClickListener {
+            val historico = Intent(this, HistoricoActivity::class.java)
+            startActivity(historico)
         }
 
         carregarDashboard()

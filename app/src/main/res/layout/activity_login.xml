@@ -78,6 +78,7 @@
                 android:layout_height="wrap_content"
                 android:hint="E-mail"
                 android:drawableStart="@drawable/icone_email"
+                android:drawablePadding="8dp"
                 android:drawableTint="#3957a1"/>
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -94,6 +95,7 @@
                 android:hint="Senha"
                 android:inputType="textPassword"
                 android:drawableStart="@drawable/icone_cadeado"
+                android:drawablePadding="8dp"
                 android:drawableTint="#3957a1"/>
         </com.google.android.material.textfield.TextInputLayout>
 
